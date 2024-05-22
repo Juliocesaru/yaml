@@ -1,4 +1,4 @@
-ocals {
+locals {
   linux_app = [
     for f in fileset("${path.module}/yamlconfiguration", "[^_]*.yaml") : yamldecode(file("${path.module}/yamlconfiguration/${f}"))
   ]
