@@ -1,13 +1,13 @@
 listoflinuxapp:
   - name: firstlinuxapp
     os_type: Linux
-    sku_name: Standard_S2
+    sku_name: B1
   - name: secondtlinuxapp
     os_type: Linux
-    sku_name: Standard_S2
+    sku_name: B1
   - name: thirdtlinuxapp
     os_type: Linux
-    sku_name: Standard_S2
+    sku_name: B1
   - name: fourthtlinuxapp
     os_type: Linux
-    sku_name: Standard_S2 
+    sku_name: B1 
