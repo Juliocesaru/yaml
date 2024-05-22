@@ -1,3 +1,13 @@
-#testfuke
-variable_name: linuxappconfiguration
-
+listoflinuxapp:
+  - name: firstlinuxapp
+    os_type: Linux
+    sku_name: Standard_S2
+  - name: secondtlinuxapp
+    os_type: Linux
+    sku_name: Standard_S2
+  - name: thirdtlinuxapp
+    os_type: Linux
+    sku_name: Standard_S2
+  - name: fourthtlinuxapp
+    os_type: Linux
+    sku_name: Standard_S2 
