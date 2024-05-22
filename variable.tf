@@ -11,3 +11,8 @@ variable "client_secret"{
 variable "tenant_id"{
   type=string
 }
+
+variable "myresourcegroupname" {
+  type=string
+  default = "mcit420zz5um"
+}
