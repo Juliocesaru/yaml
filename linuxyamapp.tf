@@ -1,7 +1,14 @@
-locals {
-  linux_app = [
-    for f in fileset("${path.module}/yamlconfiguration", "[^_]*.yaml") : yamldecode(file("${path.module}/yamlconfiguration/${f}"))
-  ]
+locals{
+  linux_app=[for f in fileset("${path.module}/yamlconfiguration", "[^_]*.yaml") : yamldecode(file("${path.module}/yamlconfiguration/${f}"))]
+  linux_app_list = flatten([
+    for app in local.linux_app : [
+      for linuxapps in try(app.listoflinuxapp, []) :{
+        name=linuxapps.name
+        os_type=linuxapps.os_type
+        sku_name=linuxapps.sku_name
+      }
+    ]
+])
 }
 resource "azurerm_service_plan" "batcha06sp" {
   for_each            ={for sp in local.linux_app_list: "${sp.name}"=>sp }
