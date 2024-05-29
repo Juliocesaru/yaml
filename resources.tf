@@ -1,3 +1,11 @@
+variable "vm_count"{
+    type=number
+    default=4
+}
+variable "vm_size"{
+    type=string
+    default="Standard_F2"
+}
 resource "azurerm_virtual_network" "vnetexample" {
   name                = "example-vnet"
   address_space       = ["10.0.0.0/16"]
@@ -35,18 +43,18 @@ resource "azurerm_linux_virtual_machine" "vm" {
   network_interface_ids = [
     azurerm_network_interface.nic[count.index].id,
   ]
-}
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
-os_disk {
-    caching              = "ReadWrite"
-    storage_account_type = "Standard_LRS"
-  }
- source_image_reference {
+  source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
     sku       = "18.04-LTS"
     version   = "latest"
   }
+}
+
+output "vm_public_ips" {
+  value = azurerm_linux_virtual_machine.vm[*].public_ip_address
+}
