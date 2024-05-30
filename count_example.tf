@@ -35,8 +35,8 @@ resource "azurerm_network_interface" "nic" {
 resource "azurerm_linux_virtual_machine" "vm" {
   count               = var.vm_count
   name                = "example-vm-${count.index}"
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.mcit420zz5um.name
+  location            = azurerm_resource_group.mcit420zz5um.location
   size                = var.vm_size
   admin_username      = var.administrator_login
   admin_password      = var.administrator_login_password
