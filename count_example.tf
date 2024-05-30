@@ -23,8 +23,8 @@ resource "azurerm_subnet" "subnet" {
 resource "azurerm_network_interface" "nic" {
   count               = var.vm_count
   name                = "example-nic-${count.index}"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.mcit420zz5um.location
+  resource_group_name = azurerm_resource_group.mcit420zz5um.name
   ip_configuration {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.subnet.id
